@@ -53,13 +53,22 @@
                     Usuario: <?php echo $_SESSION['usuario']['nombre']; ?>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Editar Datos</a>
+                    <a class="dropdown-item" href="#" 
+                    data-toggle="modal" 
+                    data-target="#modalActualizarDatosPersonales"
+                    onclick="obtenerDatosPersonalesInicio('<?php echo $_SESSION['usuario']['id']; ?>')">
+                        Editar Datos
+                    </a>
+
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="../procesos/usuarios/login/salir.php">Salir</a>
-                    
                     </div>
                 </li>
             </ul>
             </div>
         </div>
     </nav>
+
+    <?php
+        include "inicio/modalActualizarDatosPersonales.php";
+    ?>
