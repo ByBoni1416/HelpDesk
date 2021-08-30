@@ -41,7 +41,7 @@ CREATE TABLE `t_asignacion` (
   KEY `fkequipoAsignacion_idx` (`id_equipo`),
   CONSTRAINT `fkPersonaAsignacion` FOREIGN KEY (`id_persona`) REFERENCES `t_persona` (`id_persona`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fkequipoAsignacion` FOREIGN KEY (`id_equipo`) REFERENCES `t_cat_equipo` (`id_equipo`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -50,7 +50,7 @@ CREATE TABLE `t_asignacion` (
 
 LOCK TABLES `t_asignacion` WRITE;
 /*!40000 ALTER TABLE `t_asignacion` DISABLE KEYS */;
-INSERT INTO `t_asignacion` VALUES (1,1,6,'1','2','3','4','5','6','7');
+INSERT INTO `t_asignacion` VALUES (3,1,1,'DELL','Optiplex','Gris','Es una pc slim y se puede poner en monitor sobre ella','4 GB','1 TB','Core i3'),(4,1,2,'Acer','AET21','Rojo','El teclado esta en ingles y no tiene ralladuras la maquina','8 GB','120 SSD','Core i5 10500');
 /*!40000 ALTER TABLE `t_asignacion` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -75,7 +75,7 @@ CREATE TABLE `t_cat_equipo` (
 
 LOCK TABLES `t_cat_equipo` WRITE;
 /*!40000 ALTER TABLE `t_cat_equipo` DISABLE KEYS */;
-INSERT INTO `t_cat_equipo` VALUES (1,'PC',NULL),(2,'Laptop',NULL),(3,'Mouse',NULL),(4,'Teclado',NULL),(5,'Monitor',NULL),(6,'Bocinas',NULL),(7,'Microfono',NULL),(8,'Proyector',NULL);
+INSERT INTO `t_cat_equipo` VALUES (1,'PC','fas fa-desktop'),(2,'Laptop','fas fa-laptop'),(3,'Mouse',NULL),(4,'Teclado',NULL),(5,'Monitor',NULL),(6,'Bocinas',NULL),(7,'Microfono',NULL),(8,'Proyector',NULL);
 /*!40000 ALTER TABLE `t_cat_equipo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -131,8 +131,42 @@ CREATE TABLE `t_persona` (
 
 LOCK TABLES `t_persona` WRITE;
 /*!40000 ALTER TABLE `t_persona` DISABLE KEYS */;
-INSERT INTO `t_persona` VALUES (1,'help','desk','demo','2021-08-09','M','56895623','helpdesk@gmail.com','2021-08-09 14:18:27'),(2,'lopez','martinez','juan','2000-01-10','M','88','correo@gmail.com','2021-08-10 13:59:19'),(3,'lopez','martinez','juan','2000-01-11','M','8885','correo@gmail.com','2021-08-10 14:00:37');
+INSERT INTO `t_persona` VALUES (1,'help','martinez','demo','2021-08-25','M','5588','helpdesk@gmail.com','2021-08-09 14:18:27'),(2,'lopez','martinez','juan','2000-01-10','M','88','correo@gmail.com','2021-08-10 13:59:19'),(3,'lopez','martinez','juan','2000-01-11','M','8885','correo@gmail.com','2021-08-10 14:00:37');
 /*!40000 ALTER TABLE `t_persona` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `t_reportes`
+--
+
+DROP TABLE IF EXISTS `t_reportes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_reportes` (
+  `id_reporte` int(11) NOT NULL AUTO_INCREMENT,
+  `id_usuario` int(11) NOT NULL,
+  `id_equipo` int(11) NOT NULL,
+  `id_usuario_tecnico` int(11) DEFAULT NULL,
+  `descripcion_problema` text NOT NULL,
+  `solucion_problema` text,
+  `estatus` int(11) NOT NULL DEFAULT '1',
+  `fecha` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id_reporte`),
+  KEY `fkUsuarioReporte_idx` (`id_usuario`),
+  KEY `fkEquipoReporte_idx` (`id_equipo`),
+  CONSTRAINT `fkEquipoReporte` FOREIGN KEY (`id_equipo`) REFERENCES `t_cat_equipo` (`id_equipo`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fkUsuarioReporte` FOREIGN KEY (`id_usuario`) REFERENCES `t_usuarios` (`id_usuario`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `t_reportes`
+--
+
+LOCK TABLES `t_reportes` WRITE;
+/*!40000 ALTER TABLE `t_reportes` DISABLE KEYS */;
+INSERT INTO `t_reportes` VALUES (2,2,2,1,'Mi laptop se calienta mucho y se apaga despues','Vamos a cambiar pasta tÃ©rmica y limpiar el equipo, se entrego exitosamente al cliente.',0,'2021-08-13 14:17:22');
+/*!40000 ALTER TABLE `t_reportes` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -178,4 +212,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-08-12 12:58:03
+-- Dump completed on 2021-08-30 18:51:03
