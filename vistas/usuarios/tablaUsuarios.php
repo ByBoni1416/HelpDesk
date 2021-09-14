@@ -60,7 +60,7 @@
             <td><?php echo $mostrar['sexo']; ?></td>
             <td>
                 <button class="btn btn-success btn-sm">
-                    Cambiar password
+                    <span class="fas fa-exchange-alt"></span>
                 </button>
             </td>
             <td>
