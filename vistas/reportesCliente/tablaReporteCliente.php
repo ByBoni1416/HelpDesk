@@ -82,7 +82,11 @@
 
 <script>
     $(document).ready(function(){
-        $('#tablaReportesClienteDataTable').DataTable();
+        $('#tablaReportesClienteDataTable').DataTable({
+            language : {
+                url : "../public/datatable/es_es.json"
+            }
+        });
     })
 </script>
 
