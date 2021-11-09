@@ -59,7 +59,10 @@
             <td><?php echo $mostrar['ubicacion']; ?></td>
             <td><?php echo $mostrar['sexo']; ?></td>
             <td>
-                <button class="btn btn-success btn-sm">
+                <button class="btn btn-success btn-sm" 
+                    data-toggle="modal" 
+                    data-target="#modalResetPassword"
+                    onclick="agregarIdUsuarioReset(<?php echo $mostrar['idUsuario'] ?>)">
                     <span class="fas fa-exchange-alt"></span>
                 </button>
             </td>
