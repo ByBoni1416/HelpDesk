@@ -1,4 +1,4 @@
-const BASEURL = `${window.location.origin}/`;
+const BASEURL = `${window.location.origin}/helpdesk`;
 export {
     BASEURL,
 };

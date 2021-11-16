@@ -50,7 +50,7 @@
             
         }
 
-        public function agregarPersona($datos) {
+        public static function agregarPersona($datos) {
             $conexion = Conexion::conectar();
             $sql = "INSERT INTO t_persona (paterno,
                                             materno,
@@ -144,7 +144,7 @@
             }
         }
 
-        public function actualizarPersona($datos) {
+        public static function actualizarPersona($datos) {
             $conexion = Conexion::conectar();
             $idPersona = self::obtenerIdPersona($datos['idUsuario']);
 
@@ -170,7 +170,7 @@
             return $respuesta;
         }
 
-        public function obtenerIdPersona($idUsuario) {
+        public static function obtenerIdPersona($idUsuario) {
             $conexion = Conexion::conectar();
             $sql = "SELECT 
                         persona.id_persona AS idPersona
@@ -217,7 +217,7 @@
             return $respuesta;
         }
 
-        public function buscarReportesUsuario($idUsuario) {
+        public static function buscarReportesUsuario($idUsuario) {
             $conexion = Conexion::conectar();
             $sql = "SELECT * FROM t_reportes WHERE id_usuario = '$idUsuario'";
             $respuesta = mysqli_query($conexion, $sql);
@@ -228,7 +228,7 @@
             }
         }
 
-        public function buscarAsignacionPersona($idPersona) {
+        public static function buscarAsignacionPersona($idPersona) {
             $conexion = Conexion::conectar();
             $sql = "SELECT * FROM t_asignacion WHERE id_persona = '$idPersona'";
             $respuesta = mysqli_query($conexion, $sql);

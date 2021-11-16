@@ -1,7 +1,4 @@
 
-<?php
-    session_start();
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,6 +12,26 @@
     <link rel="stylesheet" href="../public/datatable/responsive.bootstrap4.min.css">
     <link rel="stylesheet" href="../public/fontawesome/css/all.css">
     <link rel="stylesheet" href="../public/datatable/buttons.dataTables.min.css">
+    
+    <script src="../public/jquery/jquery-3.6.0.min.js"></script>
+    <script src="../public/bootstrap/popper.min.js"></script>
+    <script src="../public/bootstrap/bootstrap.min.js"></script>
+    <script src="../public/datatable/jquery.dataTables.min.js"></script>
+    <script src="../public/datatable/dataTables.bootstrap4.min.js"></script>
+    <script src="../public/datatable/dataTables.responsive.min.js"></script>
+    <script src="../public/datatable/responsive.bootstrap4.min.js"></script>
+    <script src="../public/sweetalert2/sweetalert2@11.js"></script>
+    <script src="../public/js/inicio/actualizarPersonales.js"></script>
+
+    <!--Seccion de botones de datatable-->
+
+    <script src="../public/datatable/dataTables.buttons.min.js"></script>
+    <script src="../public/datatable/jszip.min.js"></script>
+    <script src="../public/datatable/pdfmake.min.js"></script>
+    <script src="../public/datatable/vfs_fonts.js"></script>
+    <script src="../public/datatable/buttons.html5.min.js"></script>
+
+    <script type="module" src="../public/js/modulo.js"></script>
     <title>Help-Desk</title>
 </head>
 <body>

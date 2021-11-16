@@ -1,8 +1,9 @@
-
 <?php 
+    session_start();
     include "header.php"; 
-    if (isset($_SESSION['usuario']) && $_SESSION['usuario']['rol'] == 1) {
+    if (isset($_SESSION['usuario']) && $_SESSION['usuario']['rol'] == 1) :
         include "../clases/Asignacion.php";
+
         $con = new Conexion();
         $conexion = $con->conectar();
         $idUsuario = $_SESSION['usuario']['id'];
@@ -79,11 +80,12 @@
         </div>
     </div>
 
-    <?php 
-    include "footer.php";
-    } else {
-        header("location:../index.html");
-    }
+<?php else : ?>
+    <script type="module">
+        import * as modulo from "../public/js/modulo.js";
+        window.location.href = `${modulo.BASEURL}/index.html`
+    </script>
+<?php
+    endif;
 ?>
-    
     

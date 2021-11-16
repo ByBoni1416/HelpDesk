@@ -1,11 +1,10 @@
-
 <?php 
-    include "header.php"; 
-    if (isset($_SESSION['usuario']) && $_SESSION['usuario']['rol'] == 2) {
+    session_start();
+    include "header.php";
+    if (isset($_SESSION['usuario']) && $_SESSION['usuario']['rol'] == 2) :
         include "../clases/Conexion.php";
         $con = new Conexion();
         $conexion = $con->conectar();
-
 ?>
 
 <!-- Page Content -->
@@ -30,10 +29,12 @@
     ?>
     <script src="../public/js/asignacion/asignacion.js"></script>
 
+<?php else : ?>
+    <script type="module">
+        import * as modulo from "../public/js/modulo.js";
+        window.location.href = `${modulo.BASEURL}/index.html`
+    </script>
 <?php
-    } else {
-        header("location:../index.html");
-    }
+    endif;
 ?>
-    
     
