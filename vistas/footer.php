@@ -15,5 +15,7 @@
     <script src="../public/datatable/pdfmake.min.js"></script>
     <script src="../public/datatable/vfs_fonts.js"></script>
     <script src="../public/datatable/buttons.html5.min.js"></script>
+
+    <script type="module" src="../public/js/modulo.js"></script>
 </body>
 </html>
