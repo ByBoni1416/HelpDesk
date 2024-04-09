@@ -5,7 +5,7 @@
 
     class Inicio extends Conexion {
         public function actualizarPersonales($datos) {
-            $conexion = Conexion::conectar();
+            $conexion = parent::conectar();
             $idUsuario = $datos['idUsuario'];
             $sql = "SELECT id_persona FROM t_usuarios WHERE id_usuario = '$idUsuario'";
             $respuesta = mysqli_query($conexion, $sql);

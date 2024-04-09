@@ -3,7 +3,7 @@
     
     class Reportes extends Conexion {
         public function agregarReporteCliente($datos) {
-            $conexion = Conexion::conectar();
+            $conexion = parent::conectar();
             $sql = "INSERT INTO t_reportes (id_usuario,
                                             id_equipo,
                                             descripcion_problema) 
@@ -18,7 +18,7 @@
         }
 
         public function eliminarReporteCliente($idReporte) {
-            $conexion = Conexion::conectar();
+            $conexion = parent::conectar();
             $sql = "DELETE FROM t_reportes WHERE id_reporte = ?";
             $query = $conexion->prepare($sql);
             $query->bind_param('i', $idReporte);
@@ -28,7 +28,7 @@
         }
 
         public function obtenerSolucion($idReporte) {
-            $conexion = Conexion::conectar();
+            $conexion = parent::conectar();
             $sql = "SELECT solucion_problema, 
                             estatus
                     FROM t_reportes 
@@ -46,7 +46,7 @@
         }
 
         public function actualizarSolucion($datos) {
-            $conexion = Conexion::conectar();
+            $conexion = parent::conectar();
             $sql = "UPDATE t_reportes 
                     SET id_usuario_tecnico = ?,
                         solucion_problema = ?,

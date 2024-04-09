@@ -4,7 +4,7 @@
 
     class Usuarios extends Conexion {
         public function loginUsuario($usuario, $password) {
-            $conexion = Conexion::conectar();
+            $conexion = parent::conectar();
             $sql = "SELECT * FROM t_usuarios 
                     WHERE usuario = '$usuario' AND password = '$password'";
             $respuesta = mysqli_query($conexion, $sql);
@@ -25,8 +25,8 @@
         }
 
         public function agregaNuevoUsuario($datos) {
-            $conexion = Conexion::conectar();
-            $idPersona = self::agregarPersona($datos);
+            $conexion = parent::conectar();
+            $idPersona = $this->agregarPersona($datos);
 
             if ($idPersona > 0) {
                 $sql = "INSERT INTO t_usuarios (id_rol, 
@@ -50,8 +50,8 @@
             
         }
 
-        public static function agregarPersona($datos) {
-            $conexion = Conexion::conectar();
+        public function agregarPersona($datos) {
+            $conexion = parent::conectar();
             $sql = "INSERT INTO t_persona (paterno,
                                             materno,
                                             nombre,
@@ -75,7 +75,7 @@
         }
 
         public function obtenerDatosUsuario($idUSuario) {
-            $conexion = Conexion::conectar();
+            $conexion = parent::conectar();
             
             $sql = "SELECT 
                         usuarios.id_usuario AS idUsuario,
@@ -123,8 +123,8 @@
         }
 
         public function actualizarUsuario($datos) {
-            $conexion = Conexion::conectar();
-            $exitoPersona = self::actualizarPersona($datos);
+            $conexion = parent::conectar();
+            $exitoPersona = $this->actualizarPersona($datos);
 
             if ($exitoPersona) {
                 $sql = "UPDATE t_usuarios SET id_rol = ?,
@@ -144,9 +144,9 @@
             }
         }
 
-        public static function actualizarPersona($datos) {
-            $conexion = Conexion::conectar();
-            $idPersona = self::obtenerIdPersona($datos['idUsuario']);
+        public function actualizarPersona($datos) {
+            $conexion = parent::conectar();
+            $idPersona = $this->obtenerIdPersona($datos['idUsuario']);
 
             $sql = "UPDATE t_persona SET paterno = ?, 
                                         materno = ?,
@@ -170,8 +170,8 @@
             return $respuesta;
         }
 
-        public static function obtenerIdPersona($idUsuario) {
-            $conexion = Conexion::conectar();
+        public function obtenerIdPersona($idUsuario) {
+            $conexion = parent::conectar();
             $sql = "SELECT 
                         persona.id_persona AS idPersona
                     FROM
@@ -185,7 +185,7 @@
         }
 
         public function resetPassword($datos) {
-            $conexion = Conexion::conectar();
+            $conexion = parent::conectar();
             $sql = "UPDATE t_usuarios 
                     SET password = ? 
                     WHERE id_usuario = ?";
@@ -199,7 +199,7 @@
         }
 
         public function cambioEstatusUsuario($idUsuario, $estatus) {
-            $conexion = Conexion::conectar();
+            $conexion = parent::conectar();
 
             if ($estatus == 1) {
                 $estatus = 0; 
@@ -217,8 +217,8 @@
             return $respuesta;
         }
 
-        public static function buscarReportesUsuario($idUsuario) {
-            $conexion = Conexion::conectar();
+        public function buscarReportesUsuario($idUsuario) {
+            $conexion = parent::conectar();
             $sql = "SELECT * FROM t_reportes WHERE id_usuario = '$idUsuario'";
             $respuesta = mysqli_query($conexion, $sql);
             if (mysqli_num_rows($respuesta) > 0) {
@@ -228,8 +228,8 @@
             }
         }
 
-        public static function buscarAsignacionPersona($idPersona) {
-            $conexion = Conexion::conectar();
+        public function buscarAsignacionPersona($idPersona) {
+            $conexion = parent::conectar();
             $sql = "SELECT * FROM t_asignacion WHERE id_persona = '$idPersona'";
             $respuesta = mysqli_query($conexion, $sql);
             if (mysqli_num_rows($respuesta) > 0) {
@@ -240,10 +240,10 @@
         }
 
         public function eliminarUsuario($datos) {
-            $conexion = Conexion::conectar();
+            $conexion = parent::conectar();
             
-            $reportes = self::buscarReportesUsuario($datos['idUsuario']);
-            $asignaciones = self::buscarAsignacionPersona($datos['idPersona']);
+            $reportes = $this->buscarReportesUsuario($datos['idUsuario']);
+            $asignaciones = $this->buscarAsignacionPersona($datos['idPersona']);
 
             if ($reportes == 0 && $asignaciones == 0) {
                 //eliminamos un usuario
