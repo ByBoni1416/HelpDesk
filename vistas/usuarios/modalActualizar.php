@@ -1,17 +1,28 @@
-
 <!-- Modal -->
 <form id="frmActualizarUsuario" method="POST" onsubmit="return actualizarUsuario()">
+    <!-- El formulario se envía por método POST y llama a la función actualizarUsuario() cuando se envía. -->
+
     <div class="modal fade" id="modalActualizarUsuarios" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <!-- El modal Bootstrap -->
         <div class="modal-dialog modal-lg" role="document">
+            <!-- Modal grande -->
             <div class="modal-content">
+                <!-- Contenido del modal -->
                 <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Actualizar usuario</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                    <!-- Encabezado del modal -->
+                    <h5 class="modal-title" id="exampleModalLabel">Actualizar usuario</h5>
+                    <!-- Título del modal -->
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <!-- Botón para cerrar el modal -->
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
                 <div class="modal-body">
+                    <!-- Cuerpo del modal -->
                     <input type="text" id="idUsuario" name="idUsuario" hidden>
+                    <!-- Campo oculto para el ID del usuario -->
+
+                    <!-- Campos para ingresar la información del usuario -->
                     <div class="row">
                         <div class="col-sm-4">
                             <label for="paternou">Apellido paterno</label>
@@ -40,7 +51,7 @@
                             </select>
                         </div>
                         <div class="col-sm-4">
-                            <label for="telefonou">Telefono</label>
+                            <label for="telefonou">Teléfono</label>
                             <input type="text" class="form-control" id="telefonou" name="telefonou">
                         </div>
                     </div>
@@ -58,6 +69,7 @@
                         <div class="col-sm-12">
                             <label for="idRolu">Rol de usuario</label>
                             <select name="idRolu" id="idRolu" class="form-control">
+                                <!-- Selección del rol del usuario -->
                                 <option value="1">Cliente</option>
                                 <option value="2">Administrador</option>
                             </select>
@@ -65,13 +77,15 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-12">
-                            <label for="ubicacionu">Ubicacion</label>
+                            <label for="ubicacionu">Ubicación</label>
                             <textarea name="ubicacionu" id="ubicacionu" class="form-control"></textarea>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                <button class="btn btn-warning">Actualizar</button>
+                    <!-- Pie del modal -->
+                    <button class="btn btn-warning">Actualizar</button>
+                    <!-- Botón de actualización -->
                 </div>
             </div>
         </div>

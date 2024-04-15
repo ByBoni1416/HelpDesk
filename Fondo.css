@@ -1,0 +1,10 @@
+body {
+    background-image: url('public/img/Fondo.jpg'); /* Selecciona la imagen de fondo */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center center; /* Centra la imagen horizontal y verticalmente */
+    background-attachment: fixed; /* Fija la imagen de fondo en su posición mientras se desplaza la página */
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir toda el área */
+    -webkit-background-size: cover; /* Prefijo específico para navegadores webkit */
+    -moz-background-size: cover; /* Prefijo específico para navegadores Mozilla */
+    -o-background-size: cover; /* Prefijo específico para navegadores Opera */
+}

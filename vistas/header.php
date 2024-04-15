@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../public/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="../public/css/plantilla.css">
+    <link rel="stylesheet" href="../Fondo.css">
     <link rel="stylesheet" href="../public/datatable/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="../public/datatable/responsive.bootstrap4.min.css">
     <link rel="stylesheet" href="../public/fontawesome/css/all.css">
