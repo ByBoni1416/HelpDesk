@@ -1,7 +1,3 @@
-Por supuesto, aquí tienes una versión revisada y expandida del texto:
-
----
-
 Este proyecto se llevó a cabo a lo largo de un período de 16 semanas, siguiendo las directrices proporcionadas por mi instructor de tecnología, con el objetivo de desarrollar un software que facilite el proceso de titulación.
 
 Para la implementación de este proyecto, se emplearon diversas tecnologías web, incluyendo HTML, CSS, PHP, JavaScript y Bootstrap. Estas herramientas fueron seleccionadas por su capacidad para crear una aplicación web robusta, dinámica y fácil de usar.
